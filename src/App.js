@@ -1,12 +1,18 @@
 import './App.css';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from './components/Header';
 import Item from './components/Item';
 import Footer from './components/Footer';
 import FilterForm from './components/FilterForm';
 import items from './components/Data';
+import { initializeGoogleAnalytics } from './google';
 
 function App() {
+
+  useEffect(() => {
+    // Initialize Google Analytics
+    initializeGoogleAnalytics();
+  }, []);
 
   const [filteredItems, setFilteredItems] = useState(items);
   
